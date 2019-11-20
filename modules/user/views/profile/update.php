@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Profile */
 
-$this->title = 'Update Profile: ' . $model->name;
+$this->title = 'Ваш профиль: ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Profiles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->user_id]];
 $this->params['breadcrumbs'][] = 'Update';
