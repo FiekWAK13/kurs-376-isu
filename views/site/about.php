@@ -4,15 +4,30 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
+$this->title = 'Информация о курсовом сайте-админке';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        This is the About page. You may modify the following file to customize its content:
-    </p>
+        Сайт,на котором есть только модуль администратора...И ненужные личные кабинеты,которые в разработке
 
+    </p>
+<p>
+    Автор проекта:Першин Данила.
+</p>
+    <p>
+        Специальность:Информационные системы и программирование
+    </p>
+    <p>
+        Курс:3
+    </p>
+    <p>
+        Тема курсового проекта:Модуль управления пользователями
+    </p>
+<p>
+    Номер задания:7 задание,2 часть
+</p>
     <code><?= __FILE__ ?></code>
 </div>

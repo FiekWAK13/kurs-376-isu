@@ -17,4 +17,10 @@ class DefaultController extends Controller
     {
         return $this->render('contact');
     }
+
+    public function actionIndexiti()
+    {
+        return $this->redirect(['profile/index'], 301);
+    }
 }
+

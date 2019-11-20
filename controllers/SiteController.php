@@ -9,6 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Signup;
+use app\models\Profile;
 
 class SiteController extends Controller
 {
@@ -124,5 +126,24 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionSignup()
+    {
+	 $model = new Signup();
+
+        if(!empty($_POST['Signup']))
+        {
+
+            $model->attributes = Yii::$app->request->post('Signup');
+            if($model->validate())
+            {
+                $model->signup();
+                return $this->goHome();
+            }
+        }
+
+
+        return $this->render('signup',['model'=>$model]);
     }
 }

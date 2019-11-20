@@ -12,15 +12,19 @@ $config = [
         '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
+        'user' => [
+            'identityClass' => 'app\models\User',
+            'enableAutoLogin' => true,
+        ],
         'view' => [
             /**
              * @link https://github.com/dmstr/yii2-adminlte-asset
              */
-            'theme' => [
-                'pathMap' => [
-                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
-                ],
-            ],
+//            'theme' => [
+//                'pathMap' => [
+//                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+//                ],
+//            ],
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -62,17 +66,26 @@ $config = [
         /**
          * @link https://github.com/dektrium/yii2-user/blob/master/docs/getting-started.md
          */
-        'user' => [
-            'class' => 'dektrium\user\Module',
-            'enableUnconfirmedLogin' => true,
-            'confirmWithin' => 21600,
-            'cost' => 12,
-            'admins' => ['admin']
+//        'user' => [
+//            'class' => 'dektrium\user\Module',
+//            'enableUnconfirmedLogin' => true,
+//            'enableConfirmation' => false,
+//            'confirmWithin' => 21600,
+//            'cost' => 12,
+//            'admins' => ['admin']
+//        ],
+//        /**
+//         * @link https://github.com/dektrium/yii2-rbac/blob/master/docs/installation.md
+//         */
+//        'rbac' => 'dektrium\rbac\RbacWebModule',
+        'admin' => [
+            'class' => 'app\modules\admin\Module'
         ],
-        /**
-         * @link https://github.com/dektrium/yii2-rbac/blob/master/docs/installation.md
-         */
-        'rbac' => 'dektrium\rbac\RbacWebModule',
+        'profile' => [
+            'class' => 'app\modules\user\ProfileModule'
+        ],
+
+
     ],
     'params' => $params,
 ];

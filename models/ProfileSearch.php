@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\User;
+use app\models\Profile;
 
 /**
- * UserSearch represents the model behind the search form of `app\models\User`.
+ * ProfileSearch represents the model behind the search form of `app\models\Profile`.
  */
-class UserSearch extends User
+class ProfileSearch extends Profile
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class UserSearch extends User
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['password', 'username'], 'safe'],
+            [['user_id'], 'integer'],
+            [['fname', 'name', 'mname', 'city'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class UserSearch extends User
      */
     public function search($params)
     {
-        $query = User::find();
+        $query = Profile::find();
 
         // add conditions that should always apply here
 
@@ -58,11 +58,13 @@ class UserSearch extends User
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
+            'user_id' => $this->user_id,
         ]);
 
-        $query//->andFilterWhere(['like', 'password', $this->password])
-            ->andFilterWhere(['like', 'username', $this->username]);
+        $query->andFilterWhere(['like', 'fname', $this->fname])
+            ->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'mname', $this->mname])
+            ->andFilterWhere(['like', 'city', $this->city]);
 
         return $dataProvider;
     }
